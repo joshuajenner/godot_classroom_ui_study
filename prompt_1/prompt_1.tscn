@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvrgrvq3mwwvc"]
+
+[ext_resource type="Theme" uid="uid://b5armshpgkqpe" path="res://prompt_1/prompt_1_theme.tres" id="1_ker15"]
+[ext_resource type="Script" uid="uid://bpyktdi048bwa" path="res://prompt_1/prompt_1.gd" id="1_l6u6e"]
+
+[node name="Prompt 1" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ker15")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_l6u6e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "-100"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "-10"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "-1"
+
+[node name="Button4" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "+1"
+
+[node name="Button5" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "+10"
+
+[node name="Button6" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "+100"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Count: 0"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="add_to_count" binds= [-100]]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="add_to_count" binds= [-10]]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="add_to_count" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Button4" to="." method="add_to_count" binds= [1]]
+[connection signal="pressed" from="HBoxContainer/Button5" to="." method="add_to_count" binds= [10]]
+[connection signal="pressed" from="HBoxContainer/Button6" to="." method="add_to_count" binds= [100]]

@@ -1,0 +1,224 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3batd03y8aaj"]
+
+[ext_resource type="Script" uid="uid://cb47sfl5mqosg" path="res://prompt_2/prompt_2.gd" id="1_twgeq"]
+
+[node name="Prompt 2" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_twgeq")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Top" type="MarginContainer" parent="Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Settings/Top"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
+
+[node name="Middle" type="MarginContainer" parent="Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Middle" type="VBoxContainer" parent="Settings/Middle"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AudioButton" type="Button" parent="Settings/Middle/Middle"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Audio"
+
+[node name="GraphicsButton" type="Button" parent="Settings/Middle/Middle"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Graphics"
+
+[node name="Bottom" type="MarginContainer" parent="Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Audio" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Top" type="MarginContainer" parent="Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Audio/Top"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Audio"
+
+[node name="Middle" type="MarginContainer" parent="Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio/Middle"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio/Middle/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="AudioSlider" type="HSlider" parent="Audio/Middle/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="AudioResetButton" type="Button" parent="Audio/Middle/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Audio/Middle/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Audio/Middle/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Mute"
+
+[node name="MuteCheckBox" type="CheckBox" parent="Audio/Middle/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Bottom" type="MarginContainer" parent="Audio"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="Audio/Bottom"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[node name="Graphics" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Top" type="MarginContainer" parent="Graphics"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Graphics/Top"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Graphics"
+
+[node name="Middle" type="MarginContainer" parent="Graphics"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Graphics/Middle"]
+layout_mode = 2
+alignment = 1
+
+[node name="R" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/R"]
+layout_mode = 2
+text = "R"
+
+[node name="SliderR" type="HSlider" parent="Graphics/Middle/VBoxContainer/R"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="ResetButtonR" type="Button" parent="Graphics/Middle/VBoxContainer/R"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Reset"
+
+[node name="G" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/G"]
+layout_mode = 2
+text = "G"
+
+[node name="SliderG" type="HSlider" parent="Graphics/Middle/VBoxContainer/G"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="ResetButtonG" type="Button" parent="Graphics/Middle/VBoxContainer/G"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Reset"
+
+[node name="B" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/B"]
+layout_mode = 2
+text = "B"
+
+[node name="SliderB" type="HSlider" parent="Graphics/Middle/VBoxContainer/B"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="ResetButtonB" type="Button" parent="Graphics/Middle/VBoxContainer/B"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Reset"
+
+[node name="Bottom" type="MarginContainer" parent="Graphics"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="Graphics/Bottom"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[connection signal="pressed" from="Settings/Middle/Middle/AudioButton" to="." method="show_audio"]
+[connection signal="pressed" from="Settings/Middle/Middle/GraphicsButton" to="." method="show_graphics"]
+[connection signal="toggled" from="Audio/Middle/VBoxContainer/HBoxContainer2/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
+[connection signal="pressed" from="Audio/Bottom/BackButton" to="." method="show_settings"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/R/SliderR" to="." method="update_r"]
+[connection signal="pressed" from="Graphics/Middle/VBoxContainer/R/ResetButtonR" to="." method="reset_r"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/G/SliderG" to="." method="update_g"]
+[connection signal="pressed" from="Graphics/Middle/VBoxContainer/G/ResetButtonG" to="." method="reset_g"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/B/SliderB" to="." method="update_b"]
+[connection signal="pressed" from="Graphics/Middle/VBoxContainer/B/ResetButtonB" to="." method="reset_b"]
+[connection signal="pressed" from="Graphics/Bottom/BackButton" to="." method="show_settings"]
