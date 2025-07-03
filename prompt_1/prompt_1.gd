@@ -3,7 +3,6 @@ extends MarginContainer
 
 @onready var count_label: Label = $Label
 
-
 var count: int = 0
 
 

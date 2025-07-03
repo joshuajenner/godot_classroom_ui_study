@@ -22,37 +22,37 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Sub100Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "-100"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="Sub10Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "-10"
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
+[node name="Sub1Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "-1"
 
-[node name="Button4" type="Button" parent="HBoxContainer"]
+[node name="Add1Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "+1"
 
-[node name="Button5" type="Button" parent="HBoxContainer"]
+[node name="Add10Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "+10"
 
-[node name="Button6" type="Button" parent="HBoxContainer"]
+[node name="Add100Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -64,9 +64,9 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "Count: 0"
 
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="add_to_count" binds= [-100]]
-[connection signal="pressed" from="HBoxContainer/Button2" to="." method="add_to_count" binds= [-10]]
-[connection signal="pressed" from="HBoxContainer/Button3" to="." method="add_to_count" binds= [-1]]
-[connection signal="pressed" from="HBoxContainer/Button4" to="." method="add_to_count" binds= [1]]
-[connection signal="pressed" from="HBoxContainer/Button5" to="." method="add_to_count" binds= [10]]
-[connection signal="pressed" from="HBoxContainer/Button6" to="." method="add_to_count" binds= [100]]
+[connection signal="pressed" from="HBoxContainer/Sub100Button" to="." method="add_to_count" binds= [-100]]
+[connection signal="pressed" from="HBoxContainer/Sub10Button" to="." method="add_to_count" binds= [-10]]
+[connection signal="pressed" from="HBoxContainer/Sub1Button" to="." method="add_to_count" binds= [-1]]
+[connection signal="pressed" from="HBoxContainer/Add1Button" to="." method="add_to_count" binds= [1]]
+[connection signal="pressed" from="HBoxContainer/Add10Button" to="." method="add_to_count" binds= [10]]
+[connection signal="pressed" from="HBoxContainer/Add100Button" to="." method="add_to_count" binds= [100]]

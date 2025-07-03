@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3batd03y8aaj"]
+[gd_scene load_steps=4 format=3 uid="uid://b3batd03y8aaj"]
 
 [ext_resource type="Script" uid="uid://cb47sfl5mqosg" path="res://prompt_2/prompt_2.gd" id="1_twgeq"]
+[ext_resource type="AudioStream" uid="uid://dtb8a3wtkx7gt" path="res://prompt_2/click1.ogg" id="2_wg61s"]
+[ext_resource type="AudioStream" uid="uid://ba5p6ftf8a3wp" path="res://prompt_2/jingles_HIT00.ogg" id="3_t74un"]
 
 [node name="Prompt 2" type="MarginContainer"]
 anchors_preset = 15
@@ -15,7 +17,6 @@ layout_mode = 2
 color = Color(0.498039, 0.498039, 0.498039, 1)
 
 [node name="Settings" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 alignment = 1
 
@@ -37,12 +38,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="AudioButton" type="Button" parent="Settings/Middle/Middle"]
+[node name="SwitchToAudioButton" type="Button" parent="Settings/Middle/Middle"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Audio"
 
-[node name="GraphicsButton" type="Button" parent="Settings/Middle/Middle"]
+[node name="SwitchToGraphicsButton" type="Button" parent="Settings/Middle/Middle"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Graphics"
@@ -52,6 +53,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Audio" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -73,32 +75,44 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Audio/Middle/VBoxContainer"]
+[node name="VolumeControls" type="HBoxContainer" parent="Audio/Middle/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="AudioSlider" type="HSlider" parent="Audio/Middle/VBoxContainer/HBoxContainer"]
+[node name="SubVolumeButton" type="Button" parent="Audio/Middle/VBoxContainer/VolumeControls"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<"
+
+[node name="VolumeSlider" type="HSlider" parent="Audio/Middle/VBoxContainer/VolumeControls"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
 
-[node name="AudioResetButton" type="Button" parent="Audio/Middle/VBoxContainer/HBoxContainer"]
+[node name="AddVolumeButton" type="Button" parent="Audio/Middle/VBoxContainer/VolumeControls"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">"
+
+[node name="VolumeResetButton" type="Button" parent="Audio/Middle/VBoxContainer/VolumeControls"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Reset"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Audio/Middle/VBoxContainer"]
+[node name="MuteControls" type="HBoxContainer" parent="Audio/Middle/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Audio/Middle/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Audio/Middle/VBoxContainer/MuteControls"]
 layout_mode = 2
 text = "Mute"
 
-[node name="MuteCheckBox" type="CheckBox" parent="Audio/Middle/VBoxContainer/HBoxContainer2"]
+[node name="MuteCheckBox" type="CheckBox" parent="Audio/Middle/VBoxContainer/MuteControls"]
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -106,7 +120,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BackButton" type="Button" parent="Audio/Bottom"]
+[node name="SwitchToSettingsButton" type="Button" parent="Audio/Bottom"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -132,93 +146,156 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Graphics/Middle"]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="R" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+[node name="RedControls" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/R"]
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/RedControls"]
 layout_mode = 2
 text = "R"
 
-[node name="SliderR" type="HSlider" parent="Graphics/Middle/VBoxContainer/R"]
+[node name="RedSlider" type="HSlider" parent="Graphics/Middle/VBoxContainer/RedControls"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 1.0
-step = 0.01
+max_value = 255.0
 
-[node name="ResetButtonR" type="Button" parent="Graphics/Middle/VBoxContainer/R"]
+[node name="RedResetButton" type="Button" parent="Graphics/Middle/VBoxContainer/RedControls"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Reset"
 
-[node name="G" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+[node name="GreenControls" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/G"]
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/GreenControls"]
 layout_mode = 2
 text = "G"
 
-[node name="SliderG" type="HSlider" parent="Graphics/Middle/VBoxContainer/G"]
+[node name="GreenSlider" type="HSlider" parent="Graphics/Middle/VBoxContainer/GreenControls"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 1.0
-step = 0.01
+max_value = 255.0
 
-[node name="ResetButtonG" type="Button" parent="Graphics/Middle/VBoxContainer/G"]
+[node name="GreenResetButton" type="Button" parent="Graphics/Middle/VBoxContainer/GreenControls"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Reset"
 
-[node name="B" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+[node name="BlueControls" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/B"]
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/BlueControls"]
 layout_mode = 2
 text = "B"
 
-[node name="SliderB" type="HSlider" parent="Graphics/Middle/VBoxContainer/B"]
+[node name="BlueSlider" type="HSlider" parent="Graphics/Middle/VBoxContainer/BlueControls"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 1.0
-step = 0.01
+max_value = 255.0
 
-[node name="ResetButtonB" type="Button" parent="Graphics/Middle/VBoxContainer/B"]
+[node name="BlueResetButton" type="Button" parent="Graphics/Middle/VBoxContainer/BlueControls"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Reset"
+
+[node name="EditControls" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="HexControls" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer/EditControls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/EditControls/HexControls"]
+layout_mode = 2
+text = "Hex:"
+
+[node name="HexEdit" type="LineEdit" parent="Graphics/Middle/VBoxContainer/EditControls/HexControls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+placeholder_text = "#000000"
+max_length = 7
+
+[node name="RGBControls" type="HBoxContainer" parent="Graphics/Middle/VBoxContainer/EditControls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Graphics/Middle/VBoxContainer/EditControls/RGBControls"]
+layout_mode = 2
+text = "R:"
+
+[node name="RedSpinBox" type="SpinBox" parent="Graphics/Middle/VBoxContainer/EditControls/RGBControls"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 255.0
+
+[node name="Label2" type="Label" parent="Graphics/Middle/VBoxContainer/EditControls/RGBControls"]
+layout_mode = 2
+text = "G:"
+
+[node name="GreenSpinBox" type="SpinBox" parent="Graphics/Middle/VBoxContainer/EditControls/RGBControls"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 255.0
+
+[node name="Label3" type="Label" parent="Graphics/Middle/VBoxContainer/EditControls/RGBControls"]
+layout_mode = 2
+text = "B:"
+
+[node name="BlueSpinBox" type="SpinBox" parent="Graphics/Middle/VBoxContainer/EditControls/RGBControls"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 255.0
 
 [node name="Bottom" type="MarginContainer" parent="Graphics"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BackButton" type="Button" parent="Graphics/Bottom"]
+[node name="SwitchToSettingsButton" type="Button" parent="Graphics/Bottom"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 
-[connection signal="pressed" from="Settings/Middle/Middle/AudioButton" to="." method="show_audio"]
-[connection signal="pressed" from="Settings/Middle/Middle/GraphicsButton" to="." method="show_graphics"]
-[connection signal="toggled" from="Audio/Middle/VBoxContainer/HBoxContainer2/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
-[connection signal="pressed" from="Audio/Bottom/BackButton" to="." method="show_settings"]
-[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/R/SliderR" to="." method="update_r"]
-[connection signal="pressed" from="Graphics/Middle/VBoxContainer/R/ResetButtonR" to="." method="reset_r"]
-[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/G/SliderG" to="." method="update_g"]
-[connection signal="pressed" from="Graphics/Middle/VBoxContainer/G/ResetButtonG" to="." method="reset_g"]
-[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/B/SliderB" to="." method="update_b"]
-[connection signal="pressed" from="Graphics/Middle/VBoxContainer/B/ResetButtonB" to="." method="reset_b"]
-[connection signal="pressed" from="Graphics/Bottom/BackButton" to="." method="show_settings"]
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wg61s")
+volume_db = -5.0
+
+[node name="VolumeChangeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t74un")
+volume_db = -5.0
+
+[connection signal="pressed" from="Settings/Middle/Middle/SwitchToAudioButton" to="." method="_on_switch_to_audio_button_pressed"]
+[connection signal="pressed" from="Settings/Middle/Middle/SwitchToGraphicsButton" to="." method="_on_switch_to_graphics_button_pressed"]
+[connection signal="pressed" from="Audio/Middle/VBoxContainer/VolumeControls/SubVolumeButton" to="." method="_on_sub_volume_button_pressed"]
+[connection signal="drag_ended" from="Audio/Middle/VBoxContainer/VolumeControls/VolumeSlider" to="." method="_on_audio_slider_drag_ended"]
+[connection signal="pressed" from="Audio/Middle/VBoxContainer/VolumeControls/AddVolumeButton" to="." method="_on_add_volume_button_pressed"]
+[connection signal="pressed" from="Audio/Middle/VBoxContainer/VolumeControls/VolumeResetButton" to="." method="_on_audio_reset_button_pressed"]
+[connection signal="toggled" from="Audio/Middle/VBoxContainer/MuteControls/MuteCheckBox" to="." method="_on_mute_check_box_toggled"]
+[connection signal="pressed" from="Audio/Bottom/SwitchToSettingsButton" to="." method="_on_switch_to_settings_button_pressed"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/RedControls/RedSlider" to="." method="_on_red_slider_value_changed"]
+[connection signal="pressed" from="Graphics/Middle/VBoxContainer/RedControls/RedResetButton" to="." method="_on_red_reset_button_pressed"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/GreenControls/GreenSlider" to="." method="_on_green_slider_value_changed"]
+[connection signal="pressed" from="Graphics/Middle/VBoxContainer/GreenControls/GreenResetButton" to="." method="_on_green_reset_button_pressed"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/BlueControls/BlueSlider" to="." method="_on_blue_slider_value_changed"]
+[connection signal="pressed" from="Graphics/Middle/VBoxContainer/BlueControls/BlueResetButton" to="." method="_on_blue_reset_button_pressed"]
+[connection signal="text_changed" from="Graphics/Middle/VBoxContainer/EditControls/HexControls/HexEdit" to="." method="_on_hex_edit_text_changed"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/EditControls/RGBControls/RedSpinBox" to="." method="_on_red_spin_box_value_changed"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/EditControls/RGBControls/GreenSpinBox" to="." method="_on_green_spin_box_value_changed"]
+[connection signal="value_changed" from="Graphics/Middle/VBoxContainer/EditControls/RGBControls/BlueSpinBox" to="." method="_on_blue_spin_box_value_changed"]
+[connection signal="pressed" from="Graphics/Bottom/SwitchToSettingsButton" to="." method="_on_switch_to_settings_button_pressed"]
